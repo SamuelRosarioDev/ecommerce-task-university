@@ -103,8 +103,8 @@ app.post("/login", (request, response) => {
 
 				const token = jwt.sign(
 					{ id: verifyLogin[0].id, email: verifyLogin[0].email },
-					process.env.JWT_SECRET,
-					{ expiresIn: process.env.JWT_EXPIRES_IN },
+					"J675HGFHV556dHHdAAwlOloil",
+					{ expiresIn: "1h" },
 				);
 
 				return response.status(200).json({ ...verifyLogin[0], token });
