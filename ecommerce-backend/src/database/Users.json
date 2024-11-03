@@ -1,0 +1,23 @@
+[
+    {
+        "id": "8d4d7072-4f0b-4898-ad6e-1d0804dac712",
+        "nome": "Samuel",
+        "email": "samuel@gmail.com",
+        "senha": "123456789",
+        "admin": false
+    },
+    {
+        "id": "afd97a41-730f-4a5c-a919-23cecd5c8fe7",
+        "nome": "teste",
+        "email": "teste0@gmail.com",
+        "senha": "123456789",
+        "admin": false
+    },
+    {
+        "id": "bf263d31-6260-4f43-8d22-6498c4c1e560",
+        "nome": "",
+        "email": "",
+        "senha": "",
+        "admin": false
+    }
+]

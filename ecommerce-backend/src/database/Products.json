@@ -1,0 +1,26 @@
+[
+    {
+        "nomeProduto": "vatapa",
+        "valor": "25",
+        "quantidade": "1",
+        "imgFile": "../uploads/1730638188154.png"
+    },
+    {
+        "nomeProduto": "mingau",
+        "valor": "10",
+        "quantidade": "1",
+        "imgFile": "../uploads/1730638706179.png"
+    },
+    {
+        "nomeProduto": "rosquinha",
+        "valor": "10",
+        "quantidade": "1",
+        "imgFile": "../uploads/1730638825652.png"
+    },
+    {
+        "nomeProduto": "tucupi",
+        "valor": "10",
+        "quantidade": "1",
+        "imgFile": "../uploads/1730644034221.png"
+    }
+]
