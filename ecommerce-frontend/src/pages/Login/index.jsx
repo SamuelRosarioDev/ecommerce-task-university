@@ -12,7 +12,7 @@ export default function Login() {
 		const login = { email, senha };
 
 		try {
-			const response = await axios.post(`${import.meta.env.API_URL}/login`, login);
+			const response = await axios.post('https://ecommerce-task-university.onrender.com/login', login);
 			console.log(response.data);
 
 			const token = response.data.token;

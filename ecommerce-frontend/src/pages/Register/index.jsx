@@ -18,7 +18,7 @@ export default function Register() {
 
 		try {
 			const response = await axios.post(
-				`${import.meta.env.API_URL}/cadastro`,
+				"https://ecommerce-task-university.onrender.com/cadastro",
 				newUser,
 			);
 			console.log(response.data);
