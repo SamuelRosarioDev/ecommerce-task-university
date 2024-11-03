@@ -2,7 +2,8 @@
   "name": "ecommerce-backend",
   "main": "src/server.js",
   "scripts": {
-    "dev": "bun --watch src/server.js"
+    "dev": "bun --watch src/server.js",
+    "build": "build ./src/server.js"
   },
   "devDependencies": {
     "@types/bun": "latest"

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+require("dotenv").config();
 
 export default function Login() {
 	const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ export default function Login() {
 		const login = { email, senha };
 
 		try {
-			const response = await axios.post("http://localhost:3000/login", login);
+			const response = await axios.post(`${process.env.API_URL}/login`, login);
 			console.log(response.data);
 
 			const token = response.data.token;

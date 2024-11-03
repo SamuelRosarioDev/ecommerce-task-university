@@ -18,7 +18,7 @@ export default function Register() {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:3000/cadastro",
+				`${process.env.API_URL}/cadastro`,
 				newUser,
 			);
 			console.log(response.data);
