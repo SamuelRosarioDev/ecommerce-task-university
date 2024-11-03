@@ -11,7 +11,17 @@ require("dotenv").config();
 const port = 3000;
 const app = express();
 
-app.use(cors());
+const allowedOrigin = 'https://ecommerce-task-university.vercel.app';
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (origin === allowedOrigin || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json());
 
 const databaseUser = path.join(__dirname, "./database/Users.json");
