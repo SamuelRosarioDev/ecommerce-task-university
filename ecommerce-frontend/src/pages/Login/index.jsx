@@ -9,26 +9,25 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const login = { email, senha };
 		console.log(typeof(email));
 		console.log(typeof(senha));
 		
-        try {
-            console.log("Tentando fazer login com:", login);
-            const response = await axios.post('https://ecommerce-task-university.onrender.com/login', login);
-            console.log("Resposta do servidor:", response.data);
+        // try {
+        //     console.log("Tentando fazer login com:", login);
+        //     const response = await axios.post('https://ecommerce-task-university.onrender.com/login', login);
+        //     console.log("Resposta do servidor:", response.data);
 
-            const token = response.data.token;
-            localStorage.setItem("token", token);
-        } catch (error) {
-            if (error.response) {
-                console.log("Erro na resposta do servidor:", error.response.data);
-                alert(`Erro ao logar. ${error.response.data.message}`);
-            } else {
-                console.log("Erro ao logar:", error.message);
-                alert("Erro ao logar. Verifique suas credenciais.");
-            }
-        }
+        //     const token = response.data.token;
+        //     localStorage.setItem("token", token);
+        // } catch (error) {
+        //     if (error.response) {
+        //         console.log("Erro na resposta do servidor:", error.response.data);
+        //         alert(`Erro ao logar. ${error.response.data.message}`);
+        //     } else {
+        //         console.log("Erro ao logar:", error.message);
+        //         alert("Erro ao logar. Verifique suas credenciais.");
+        //     }
+        // }
     };
 
 	return (
