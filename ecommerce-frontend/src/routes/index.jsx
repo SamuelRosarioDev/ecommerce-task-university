@@ -5,10 +5,10 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Cadastro from "../pages/Register";
 
-import AuthGuard from "../AuthGuard";
+import { AuthGuard, AuthGuardPublic } from "../AuthGuard";
 
 export const routers = createBrowserRouter([
 	{ path: "/", element: <AuthGuard> <Home /> </AuthGuard> },
-	{ path: "/login", element: <Login /> },
-	{ path: "/cadastro", element: <Cadastro /> },
+	{ path: "/login", element: <AuthGuardPublic> <Login /> </AuthGuardPublic> },
+	{ path: "/cadastro", element: <AuthGuardPublic> <Cadastro /> </AuthGuardPublic>  },
 ]);
