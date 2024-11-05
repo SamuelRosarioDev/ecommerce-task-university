@@ -12,11 +12,16 @@ dotenv.config();
 const port = 3000;
 const app = express();
 
+const distDir = path.join(__dirname, 'dist');
+if (!fs.existsSync(distDir)) {
+    console.error("Diretório 'dist' não encontrado:", distDir);
+}
+
 // Configurar CORS para permitir múltiplas origens
 app.use(cors({
     origin: [
         "https://ecommerce-task-university.vercel.app", 
-        "http://localhost:3000" // Adicione aqui outras origens se necessário
+        "http://localhost:5173" // Adicione aqui outras origens se necessário
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
