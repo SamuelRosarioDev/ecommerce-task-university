@@ -72,44 +72,34 @@ app.post("/cadastro", (request, response) => {
 });
 
 app.post("/login", (request, response) => {
-	const { email, senha } = request.body;
+    const { email, senha } = request.body;
 
-	fs.readFile(databaseUser, "utf8", (err, data) => {
-		if (err) {
-			return response
-				.status(500)
-				.json({ message: "Erro ao ler o arquivo de usuários" });
-		}
+    fs.readFile(databaseUser, "utf8", (err, data) => {
+        if (err) {
+            console.error("Erro ao ler o arquivo de usuários:", err);
+            return response.status(500).json({ message: "Erro ao ler o arquivo de usuários" });
+        }
 
-		if (data) {
-			const users = JSON.parse(data);
-			const verifyLogin = users.filter(
-				(user) => user.email === email && user.senha === senha,
-			);
+        try {
+            const users = JSON.parse(data);
+            const verifyLogin = users.filter(user => user.email === email && user.senha === senha);
 
-			if (verifyLogin.length > 0) {
-				if (!process.env.JWT_SECRET) {
-					return response
-						.status(500)
-						.json({ message: "Chave secreta não configurada" });
-				}
+            if (verifyLogin.length > 0) {
+                const token = jwt.sign(
+                    { id: verifyLogin[0].id, email: verifyLogin[0].email },
+                    "J675HGFHV556dHHdAAwlOloil",
+                    { expiresIn: "1h" }
+                );
 
-				const token = jwt.sign(
-					{ id: verifyLogin[0].id, email: verifyLogin[0].email },
-					"J675HGFHV556dHHdAAwlOloil",
-					{ expiresIn: "1h" },
-				);
+                return response.status(200).json({ ...verifyLogin[0], token });
+            }
 
-				return response.status(200).json({ ...verifyLogin[0], token });
-			}
-
-			return response
-				.status(401)
-				.json({ message: "Email ou Senha incorretos" });
-		}
-
-		return response.status(404).json({ message: "Nenhum usuário encontrado" });
-	});
+            return response.status(401).json({ message: "Email ou Senha incorretos" });
+        } catch (parseError) {
+            console.error("Erro ao processar o JSON:", parseError);
+            return response.status(500).json({ message: "Erro ao processar os dados dos usuários" });
+        }
+    });
 });
 
 // PRODUCTS
