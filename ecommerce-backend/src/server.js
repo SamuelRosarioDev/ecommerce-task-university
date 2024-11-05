@@ -7,12 +7,16 @@ import jwt from "jsonwebtoken";
 import multer from "multer";
 import { v4 as uuidv4 } from "uuid";
 
-dotenv.config(); // Carregar variáveis de ambiente
+dotenv.config(); 
 
 const port = 3000;
 const app = express();
 
-app.use(cors({ origin: "https://ecommerce-task-university.vercel.app" }));
+app.use(cors({ 
+	origin: "https://ecommerce-task-university.vercel.app", 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 app.use(express.json());
 
