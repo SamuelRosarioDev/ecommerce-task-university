@@ -17,10 +17,7 @@ export default function Register() {
 		};
 
 		try {
-			const response = await axios.post(
-				"https://ecommerce-task-university.onrender.com/cadastro",
-				newUser,
-			);
+			const response = await axios.post("https://ecommerce-task-university.onrender.com/cadastro",newUser);
 			console.log(response.data);
 		} catch (error) {
 			console.log("Erro ao cadastrar:", error.message);
