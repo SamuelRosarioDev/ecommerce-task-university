@@ -19,5 +19,12 @@
         "email": "",
         "senha": "",
         "admin": false
+    },
+    {
+        "id": "5b828043-0aa2-4b13-a2ad-4fc2fd6fb8c8",
+        "nome": "mario",
+        "email": "mario@gmail.com",
+        "senha": "123456789",
+        "admin": false
     }
 ]

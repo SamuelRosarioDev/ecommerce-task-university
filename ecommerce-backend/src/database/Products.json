@@ -3,7 +3,8 @@
         "nomeProduto": "vatapa",
         "valor": "25",
         "quantidade": "1",
-        "imgFile": "../uploads/1730638188154.png"
+        "imgFile": "../uploads/1730638188154.png",
+        "estoque": 10
     },
     {
         "nomeProduto": "mingau",
