@@ -3,25 +3,30 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-	const [email, setEmail] = useState("");
-	const [senha, setSenha] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-		const login = { email, senha };
-// 'https://ecommerce-task-university.onrender.com'
-		try {
-			const response = await axios.post('https://ecommerce-task-university.onrender.com/login', login);
-			console.log(response.data);
+        const login = { email, senha };
+        try {
+            console.log("Tentando fazer login com:", login);
+            const response = await axios.post('https://ecommerce-task-university.onrender.com/login', login);
+            console.log("Resposta do servidor:", response.data);
 
-			const token = response.data.token;
-			localStorage.setItem("token", token);
-		} catch (error) {
-			alert("Erro ao logar. Verifique suas credenciais.");
-			console.log("Erro ao logar:", error.message);
-		}
-	};
+            const token = response.data.token;
+            localStorage.setItem("token", token);
+        } catch (error) {
+            if (error.response) {
+                console.log("Erro na resposta do servidor:", error.response.data);
+                alert(`Erro ao logar. ${error.response.data.message}`);
+            } else {
+                console.log("Erro ao logar:", error.message);
+                alert("Erro ao logar. Verifique suas credenciais.");
+            }
+        }
+    };
 
 	return (
 		<section>
