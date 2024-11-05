@@ -13,7 +13,7 @@ export default function Login() {
 		
         try {
             console.log("Tentando fazer login com:", login);
-            const response = await axios.post('https://ecommerce-task-university.onrender.com/login', `${login}`);
+            const response = await axios.post("https://ecommerce-task-university.onrender.com/login", login);
             console.log("Resposta do servidor:", response.data);
 
             const token = response.data.token;
