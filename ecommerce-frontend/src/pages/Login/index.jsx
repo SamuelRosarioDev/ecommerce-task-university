@@ -10,6 +10,9 @@ export default function Login() {
         e.preventDefault();
 
         const login = { email, senha };
+		console.log(typeof(email));
+		console.log(typeof(senha));
+		
         try {
             console.log("Tentando fazer login com:", login);
             const response = await axios.post('https://ecommerce-task-university.onrender.com/login', login);
